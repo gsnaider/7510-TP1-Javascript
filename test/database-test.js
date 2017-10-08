@@ -4,7 +4,7 @@ var should = require('should');
 var Database = require('../src/database');
 var Query = require('../src/query');
 
-describe("FactSearcher", function () {
+describe("Database", function () {
 
     var facts = [
         "varon(juan)",
