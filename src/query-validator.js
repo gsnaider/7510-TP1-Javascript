@@ -14,4 +14,4 @@ var QueryValidator = function () {
 
 }
 
-module.exports = FactValidator;
+module.exports = QueryValidator;
