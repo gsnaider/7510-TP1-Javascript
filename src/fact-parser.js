@@ -13,6 +13,7 @@ var FactParser = function () {
      * or throws an Error if the fact has an invalid format.
      */
     var parseFact = function (factString) {
+
         if (!validator.isValidFact(factString)) {
             throw new Error("Invalid fact.");
         }
