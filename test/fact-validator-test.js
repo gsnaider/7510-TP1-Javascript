@@ -15,7 +15,7 @@ describe("FactValidator", function () {
 
         it('isValidFact returns true for valid facts.', function () {
             assert(factValidator.isValidFact("varon(juan)."));
-            assert(factValidator.isValidFact("varon(juan, pepe)."));
+            assert(factValidator.isValidFact("padre(juan, pepe)."));
         });
 
         it('isValidFact returns false for invalid facts.', function () {
