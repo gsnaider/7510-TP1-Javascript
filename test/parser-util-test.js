@@ -22,12 +22,16 @@ describe("ParserUtil", function () {
         });
 
         it('parseParams returns the params of an input-expression.', function () {
-            assert(parserUtil.parseParams("varon(juan).") === ["juan"]);
-            assert(parserUtil.parseParams("padre(juan, pepe).") === ["juan", "pepe"]);
-            assert(parserUtil.parseParams("hijo(juan, pepe)") === ["juan", "pepe"]);
-            assert(parserUtil.parseParams("hijo(X, Y) :- varon(X), padre(Y, X).") === ["X", "Y"]);
+            assert(equalArrays(parserUtil.parseParams("varon(juan)."), ["juan"]));
+            assert(equalArrays(parserUtil.parseParams("padre(juan, pepe)."), ["juan", "pepe"]));
+            assert(equalArrays(parserUtil.parseParams("hijo(juan, pepe)"), ["juan", "pepe"]));
+            assert(equalArrays(parserUtil.parseParams("hijo(X, Y) :- varon(X), padre(Y, X)."), ["X", "Y"]));
         });
 
     });
+
+    function equalArrays(a1, a2) {
+        return (a1.length==a2.length && a1.every((v,i)=> v === a2[i]));
+    }
 
 });
