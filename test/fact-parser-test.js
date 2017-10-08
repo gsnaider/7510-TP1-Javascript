@@ -31,7 +31,7 @@ describe("FactParser", function () {
     it('parseFacts returns a set of Facts from a valid database.', function () {
       assert(equalSets(factParser.parseFacts(parentDatabase),
         new Set([
-          new Fact("varon", ["juan"]), 
+          new Fact("varon", ["juan"]),
           new Fact("varon", ["juan", "pepe"])])));
             
     });
@@ -50,7 +50,7 @@ describe("FactParser", function () {
       return false;
     }
     for (var a of s1) {
-      if (!bs.has(a)) {
+      if (!s2.has(a)) {
         return false;
       }
     }
