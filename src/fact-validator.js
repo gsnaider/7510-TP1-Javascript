@@ -6,7 +6,7 @@ var FactValidator = function () {
     var parserUtil = new ParserUtil();
 
     /**
-     * Returns true if the format of fact-string is a valid fact format, or false otherwise.
+     * Returns true if the format of factString is a valid fact format, or false otherwise.
      */
     this.isValidFact = function (factString) {
         return FACT_REGEX.test(parserUtil.removeWhitespace(factString));
