@@ -1,6 +1,5 @@
-var expect = require("chai").expect;
+var assert = require("chai").assert;
 var should = require('should');
-var assert = require('assert');
 
 var Interpreter = require('../src/interpreter');
 
@@ -87,6 +86,21 @@ describe("Interpreter", function () {
 
     });
 
+    describe('Interpreter Invalid queries', function () {
+
+        it('varon should be null', function () {
+            assert.isNull(interpreter.checkQuery('varon'));
+        });
+
+        it('maria should be null', function () {
+            assert.isNull(interpreter.checkQuery('maria'));
+        });
+
+        it('Empty query should be null', function () {
+            assert.isNull(interpreter.checkQuery(''));
+        });
+
+    });
 
 });
 
