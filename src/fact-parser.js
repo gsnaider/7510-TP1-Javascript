@@ -15,7 +15,7 @@ var FactParser = function () {
     var parseFact = function (factString) {
 
         if (!validator.isValidFact(factString)) {
-            throw new Error("Invalid fact.");
+            throw new Error("Invalid fact: " + factString);
         }
         return parserUtil.removeWhitespace(factString).replace(END_LINE_REGEX, "");
     }

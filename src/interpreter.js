@@ -9,7 +9,7 @@ var Interpreter = function () {
         try {
             facts = factParser.parseFacts(database);
         } catch (error) {
-            console.error(error.getMessage);
+            console.error(error.message);
         }
     }
 
