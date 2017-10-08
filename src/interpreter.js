@@ -18,6 +18,7 @@ var Interpreter = function () {
 
     this.checkQuery = function (inputQuery) {
         if (!facts) {
+            console.warn("Database not initialized. Returning null.");
             return null;
         }
         try {
@@ -26,6 +27,7 @@ var Interpreter = function () {
             console.error(error.message);
             return null;
         }
+
         return true;
     }
 
