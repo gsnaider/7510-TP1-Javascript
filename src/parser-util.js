@@ -1,7 +1,15 @@
 var ParserUtil = function () {
 
+    const WHITESPACE_REGEX = /\s+/g;
     const NAME_REGEX = /^\w+/;
     const PARAMS_REGEX = /\([^\)]*\)/;
+
+    /**
+     * Returns a string which equals s after all its whitespace characters have been removed.
+     */
+    this.removeWhitespace = function (s) {
+        return s.replace(WHITESPACE_REGEX, "");
+    }
 
     /**
      * Returns the name from a valid input expression.
