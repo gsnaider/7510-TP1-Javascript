@@ -1,6 +1,6 @@
 var Database = function (facts, rules) {
 
-    this.contians = function (query) {
+    this.contains = function (query) {
         return true;
     }
 
