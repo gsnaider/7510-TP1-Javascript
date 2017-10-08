@@ -6,7 +6,7 @@ var Query = require('../src/query');
 
 describe("Database", function () {
 
-    var facts = [
+    var facts = new Set([
         "varon(juan)",
         "varon(pepe)",
         "varon(hector)",
@@ -19,10 +19,10 @@ describe("Database", function () {
         "padre(hector,maria)",
         "padre(roberto,alejandro)",
         "padre(roberto,cecilia)"
-    ];
+    ]);
 
     // TODO: Add rules
-    var rules = [];
+    var rules = new Set([]);
 
     var database = null;
 

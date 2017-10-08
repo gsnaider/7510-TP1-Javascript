@@ -1,7 +1,11 @@
 var Database = function (facts, rules) {
 
     this.contains = function (query) {
-        return true;
+        if (facts.has(query.toString())) {
+            return true;
+        }
+        // TODO: Check rules.
+        return false;
     }
 
 }

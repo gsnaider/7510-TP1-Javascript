@@ -8,5 +8,9 @@ var Query = function (name, params) {
         return params;
     }
 
+    this.toString = function () {
+        return name + '(' + params.join() + ')';
+    }
+
 }
 module.exports = Query;
