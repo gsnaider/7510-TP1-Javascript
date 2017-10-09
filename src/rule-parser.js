@@ -5,6 +5,9 @@ var Rule = require('../src/rule');
 var RuleParser = function () {
 
     const RULE_ASSIGN_CODE = ":-";
+    const END_LINE_REGEX = /\.$/;
+    const RULE_FACTS_SEPARATOR_REGEX = /,(?![^\(]*\))/;
+
     var validator = new RuleValidator();
     var parserUtil = new ParserUtil();
 
@@ -12,8 +15,12 @@ var RuleParser = function () {
      * Returns a set containing all the facts as strings from a ruleString.
      */
     var parseRuleFacts = function (ruleString) {
-        //TODO
-        return new Set();
+        var facts =
+            ruleString
+                .split(RULE_ASSIGN_CODE)[1]
+                .split(RULE_FACTS_SEPARATOR_REGEX)
+                .map(parserUtil.removeWhitespace);
+        return new Set(facts);
     }
 
     /**
@@ -23,6 +30,7 @@ var RuleParser = function () {
         if (!validator.isValidRule(ruleString)) {
             throw new Error("Invalid rule: " + ruleString);
         }
+        ruleString = ruleString.replace(END_LINE_REGEX, "");
         var rule = new Rule(parserUtil.parseName(ruleString),
             parserUtil.parseParams(ruleString),
             parseRuleFacts(ruleString));
