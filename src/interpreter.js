@@ -14,7 +14,7 @@ var Interpreter = function () {
         try {
             facts = factParser.parseFacts(inputDatabase);
             // TODO: parse rules and set to database.
-            database = new Database(facts, []);
+            database = new Database(facts, {});
         } catch (error) {
             console.error("Error parsing database: " + error.message);
         }
