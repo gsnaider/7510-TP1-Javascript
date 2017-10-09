@@ -1,6 +1,5 @@
-var expect = require("chai").expect;
+var assert = require("chai").assert;
 var should = require('should');
-var assert = require('assert');
 
 var ParserUtil = require('../src/parser-util');
 var CollectionUtil = require('../src/collection-util');
@@ -23,10 +22,10 @@ describe("ParserUtil", function () {
 
     describe('ParserUtil parse name', function () {
         it('parseName returns name of inputExpression.', function () {
-            assert(parserUtil.parseName("varon(juan).") === "varon");
-            assert(parserUtil.parseName("padre(juan, pepe).") === "padre");
-            assert(parserUtil.parseName("hijo(juan, pepe)") === "hijo");
-            assert(parserUtil.parseName("hijo(X, Y) :- varon(X), padre(Y, X).") === "hijo");
+            assert.equal(parserUtil.parseName("varon(juan)."), "varon");
+            assert.equal(parserUtil.parseName("padre(juan, pepe)."), "padre");
+            assert.equal(parserUtil.parseName("hijo(juan, pepe)"), "hijo");
+            assert.equal(parserUtil.parseName("hijo(X, Y) :- varon(X), padre(Y, X)."), "hijo");
         });
     });
 

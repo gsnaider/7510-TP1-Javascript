@@ -1,6 +1,5 @@
-var expect = require("chai").expect;
+var assert = require("chai").assert;
 var should = require('should');
-var assert = require('assert');
 
 var FactParser = require('../src/fact-parser');
 var CollectionUtil = require('../src/collection-util');
