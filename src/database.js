@@ -1,6 +1,6 @@
 var CollectionUtil = require('../src/collection-util');
 
-var Database = function (facts, rules) {
+function Database(facts, rules) {
 
     var collectionUtil = new CollectionUtil();
 
@@ -73,4 +73,5 @@ var Database = function (facts, rules) {
     }
 
 }
+
 module.exports = Database;

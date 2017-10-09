@@ -1,4 +1,4 @@
-var Query = function (name, params) {
+function Query(name, params) {
 
     this.getName = function () {
         return name;
@@ -13,4 +13,5 @@ var Query = function (name, params) {
     }
 
 }
+
 module.exports = Query;

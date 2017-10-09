@@ -1,6 +1,6 @@
 var ParserUtil = require('../src/parser-util');
 
-var QueryValidator = function () {
+function QueryValidator() {
 
     const QUERY_REGEX = /^\w+\((\w+)(,\w+)*\)$/;
     var parserUtil = new ParserUtil();

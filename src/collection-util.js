@@ -1,4 +1,4 @@
-var CollectionUtil = function () {
+function CollectionUtil() {
 
     /**
      * Returns true if both arrays are equal, that is, they have the same

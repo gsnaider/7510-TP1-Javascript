@@ -3,7 +3,7 @@ var RuleParser = require('../src/rule-parser');
 var QueryParser = require('../src/query-parser');
 var Database = require('../src/database');
 
-var Interpreter = function () {
+function Interpreter() {
 
     var database = null
     var factParser = new FactParser();

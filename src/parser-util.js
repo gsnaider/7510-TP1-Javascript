@@ -1,4 +1,4 @@
-var ParserUtil = function () {
+function ParserUtil() {
 
     const WHITESPACE_REGEX = /\s+/g;
     const NAME_REGEX = /^\w+/;

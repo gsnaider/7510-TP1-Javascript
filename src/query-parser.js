@@ -3,7 +3,7 @@ var ParserUtil = require('../src/parser-util');
 var Query = require('../src/query');
 
 
-var QueryParser = function () {
+function QueryParser() {
 
     var validator = new QueryValidator();
     var parserUtil = new ParserUtil();

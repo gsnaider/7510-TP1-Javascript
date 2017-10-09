@@ -1,6 +1,6 @@
 var ParserUtil = require('../src/parser-util');
 
-var FactValidator = function () {
+function FactValidator() {
 
     const FACT_REGEX = /^\w+\((\w+)(,\w+)*\)\.$/;
     var parserUtil = new ParserUtil();

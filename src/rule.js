@@ -1,4 +1,4 @@
-var Rule = function (name, params, facts) {
+function Rule(name, params, facts) {
 
     this.getName = function () {
         return name;
@@ -13,4 +13,5 @@ var Rule = function (name, params, facts) {
     }
 
 }
+
 module.exports = Rule;
