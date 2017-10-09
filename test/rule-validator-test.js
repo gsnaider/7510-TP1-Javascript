@@ -65,12 +65,12 @@ describe("RuleValidator", function () {
             function () {
                 assert.isFalse(ruleValidator.ruleHasValidParams(
                     new Rule("hijo", ["X"], new Set(["varon(Y)"]))));
-                assertisFalse(ruleValidator.ruleHasValidParams(
+                assert.isFalse(ruleValidator.ruleHasValidParams(
                     new Rule(
                         "hijo",
                         ["X"],
                         new Set(["varon(X)", "padre(X, Y)"]))));
-                assertisFalse(ruleValidator.ruleHasValidParams(
+                assert.isFalse(ruleValidator.ruleHasValidParams(
                     new Rule(
                         "hijo",
                         ["X", "Y"],

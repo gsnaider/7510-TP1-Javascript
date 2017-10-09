@@ -1,9 +1,11 @@
 var ParserUtil = require('../src/parser-util');
+var CollectionUtil = require('../src/collection-util');
 
 var RuleValidator = function () {
 
     const RULE_REGEX = /^\w+\((\w+)(,\w+)*\):-(\w+\((\w+)(,\w+)*\))(,\w+\((\w+)(,\w+)*\))*\.$/;
     var parserUtil = new ParserUtil();
+    var collectionUtil = new CollectionUtil();
 
     /**
      * Returns true if the format of factString is a valid fact format, or false otherwise.
@@ -19,8 +21,11 @@ var RuleValidator = function () {
      * @returns {boolean}
      */
     this.ruleHasValidParams = function (rule) {
-        // TODO
-        return true;
+        return collectionUtil.equalSets(
+            new Set(rule.getParams()),
+            new Set(
+                collectionUtil.flatten(
+                    Array.from(rule.getFacts()).map(parserUtil.parseParams))));
     }
 
 }
