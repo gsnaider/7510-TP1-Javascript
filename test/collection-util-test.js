@@ -51,4 +51,14 @@ describe("CollectionUtil", function () {
         });
     });
 
+    describe('CollectionUtil flatten arrays', function () {
+        it('flatten returns flattened array.', function () {
+            assert(collectionUtil.equalArrays(collectionUtil.flatten([]), []));
+            assert(collectionUtil.equalArrays(collectionUtil.flatten([1, 2, 3]), [1, 2, 3]));
+            assert(collectionUtil.equalArrays(collectionUtil.flatten([[1], [2], [3]]), [1, 2, 3]));
+            assert(collectionUtil.equalArrays(collectionUtil.flatten([[1], 2, [3]]), [1, 2, 3]));
+            assert(collectionUtil.equalArrays(collectionUtil.flatten([[1, 2], 3, [4, 5, 6], []]), [1, 2, 3, 4, 5 ,6]));
+        });
+    });
+
 });

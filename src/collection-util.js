@@ -26,6 +26,12 @@ var CollectionUtil = function () {
         return true;
     }
 
+    this.flatten = function flatten(array) {
+        return array.reduce(function (flatArray, next) {
+            return flatArray.concat(Array.isArray(next) ? flatten(next) : next);
+        }, []);
+    }
+
 }
 
 module.exports = CollectionUtil;
