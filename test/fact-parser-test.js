@@ -40,7 +40,7 @@ describe("FactParser", function () {
                 function () {
                     factParser.parseFacts(incompleteDatabase);
                 },
-                Error);
+                /Invalid fact: varon/);
         });
 
     });

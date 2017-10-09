@@ -22,7 +22,7 @@ describe("Database", function () {
     ]);
 
     // TODO: Add rules
-    var rules = new Set([]);
+    var rules = {};
 
     var database = null;
 
