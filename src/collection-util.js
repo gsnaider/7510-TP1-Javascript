@@ -26,12 +26,25 @@ var CollectionUtil = function () {
         return true;
     }
 
+    /**
+     * Returns a single array containing all the elements from array and its inner arrays (if it has any).
+     */
     this.flatten = function flatten(array) {
         return array.reduce(function (flatArray, next) {
             return flatArray.concat(Array.isArray(next) ? flatten(next) : next);
         }, []);
     }
 
+    /**
+     * Returns a map with the keys specified in keys, and values specified in values.
+     */
+    this.newMap = function (keys, values) {
+        var map = {};
+        for (i = 0; i < keys.length; i++) {
+            map[keys[i]] = values[i];
+        }
+        return map;
+    }
 }
 
 module.exports = CollectionUtil;
