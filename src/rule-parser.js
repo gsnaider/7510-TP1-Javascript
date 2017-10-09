@@ -34,7 +34,10 @@ var RuleParser = function () {
         var rule = new Rule(parserUtil.parseName(ruleString),
             parserUtil.parseParams(ruleString),
             parseRuleFacts(ruleString));
-        // TODO: Validate rule params.
+        if (!validator.ruleHasValidParams(rule)) {
+            throw new Error("Invalid rule parameters: " + ruleString);
+        }
+        return rule;
     }
 
 

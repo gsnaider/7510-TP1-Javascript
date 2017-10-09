@@ -19,6 +19,11 @@ describe("RuleParser", function () {
         "hijo(X, Y) :- varon"
     ];
 
+    var invalidDatabase = [
+        "varon(juan).",
+        "hijo(X) :- varon(X), padre(Y, X)."
+    ];
+
     var ruleParser = null;
     var collectionUtil = new CollectionUtil();
 
@@ -35,13 +40,13 @@ describe("RuleParser", function () {
             var rule1 = rules['hijo'];
             assert.equal(rule1.getName(), 'hijo');
             assert(collectionUtil.equalArrays(rule1.getParams(), ['X', 'Y']));
-            assert(collectionUtil.equalSets(rule1.getFacts(), ['varon(X)', 'padre(Y, X)']));
+            assert(collectionUtil.equalSets(rule1.getFacts(), new Set(['varon(X)', 'padre(Y,X)'])));
 
             assert('hija' in rules);
             var rule2 = rules['hija'];
-            assert.equal(rule1.getName(), 'hija');
-            assert(collectionUtil.equalArrays(rule1.getParams(), ['X', 'Y']));
-            assert(collectionUtil.equalSets(rule1.getFacts(), ['mujer(X), padre(Y, X)']));
+            assert.equal(rule2.getName(), 'hija');
+            assert(collectionUtil.equalArrays(rule2.getParams(), ['X', 'Y']));
+            assert(collectionUtil.equalSets(rule2.getFacts(), new Set(['mujer(X)', 'padre(Y,X)'])));
 
         });
 
@@ -53,6 +58,13 @@ describe("RuleParser", function () {
                 /Invalid rule: hijo\(X, Y\) :- varon/);
         });
 
+        it('parseRules throws Exception with an invalid database.', function () {
+            assert.throws(
+                function () {
+                    ruleParser.parseRules(invalidDatabase);
+                },
+                /Invalid rule parameters: hijo\(X\) :- varon\(X\), padre\(Y, X\)/);
+        });
     });
 
 });
