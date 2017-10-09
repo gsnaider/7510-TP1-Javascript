@@ -84,16 +84,16 @@ describe("Interpreter", function () {
 
     describe('Interpreter Invalid queries', function () {
 
-        it('varon should be null', function () {
-            assert.isNull(interpreter.checkQuery('varon'));
+        it('varon throws exception', function () {
+            assert.throws(function() {interpreter.checkQuery('varon')}, Error, /Invalid query/);
         });
 
-        it('maria should be null', function () {
-            assert.isNull(interpreter.checkQuery('maria'));
+        it('maria throws exception', function () {
+            assert.throws(function() {interpreter.checkQuery('maria')}, Error, /Invalid query/);
         });
 
-        it('Empty query should be null', function () {
-            assert.isNull(interpreter.checkQuery(''));
+        it('Empty query throws exception', function () {
+            assert.throws(function() {interpreter.checkQuery('')}, Error, /Invalid query/);
         });
 
     });

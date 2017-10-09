@@ -23,15 +23,9 @@ var Interpreter = function () {
 
     this.checkQuery = function (inputQuery) {
         if (!database) {
-            console.warn("Database not initialized. Returning null.");
-            return null;
+            throw new Error("Database is not initialized");
         }
-        try {
-            var query = queryParser.parseQuery(inputQuery);
-        } catch (error) {
-            console.error(error.message);
-            return null;
-        }
+        var query = queryParser.parseQuery(inputQuery);
         return database.contains(query);
     }
 }

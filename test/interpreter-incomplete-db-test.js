@@ -20,8 +20,8 @@ describe("Interpreter", function () {
 
     describe('Interpreter incomplete db', function () {
 
-        it('checkQuery returns null', function () {
-            assert.isNull(interpreter.checkQuery('varon(juan)'));
+        it('checkQuery throws exception', function () {
+            assert.throws(function() {interpreter.checkQuery('varon(juan)')}, Error, /Database is not initialized/);
         });
 
     });
