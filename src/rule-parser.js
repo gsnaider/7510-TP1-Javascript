@@ -2,7 +2,7 @@ var RuleValidator = require('../src/rule-validator');
 var ParserUtil = require('../src/parser-util');
 var Rule = require('../src/rule');
 
-var RuleParser = function () {
+function RuleParser() {
 
     const RULE_ASSIGN_CODE = ":-";
     const END_LINE_REGEX = /\.$/;
@@ -14,7 +14,7 @@ var RuleParser = function () {
     /**
      * Returns a set containing all the facts as strings from a ruleString.
      */
-    var parseRuleFacts = function (ruleString) {
+    function parseRuleFacts(ruleString) {
         var facts =
             ruleString
                 .split(RULE_ASSIGN_CODE)[1]
@@ -26,7 +26,7 @@ var RuleParser = function () {
     /**
      * Converts a ruleString to a Rule, or throws an Exception if the ruleString is invalid.
      */
-    var parseRule = function (ruleString) {
+    function parseRule(ruleString) {
         if (!validator.isValidRule(ruleString)) {
             throw new Error("Invalid rule: " + ruleString);
         }

@@ -1,7 +1,7 @@
 var FactValidator = require('../src/fact-validator');
 var ParserUtil = require('../src/parser-util');
 
-var FactParser = function () {
+function FactParser() {
 
     const RULE_ASSIGN_CODE = ":-";
     const END_LINE_REGEX = /\.$/;
@@ -12,7 +12,7 @@ var FactParser = function () {
      * Returns the fact as a string without whitespace and without the end-line character,
      * or throws an Error if the fact has an invalid format.
      */
-    var parseFact = function (factString) {
+    function parseFact(factString) {
 
         if (!validator.isValidFact(factString)) {
             throw new Error("Invalid fact: " + factString);

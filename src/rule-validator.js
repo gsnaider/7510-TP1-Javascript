@@ -1,7 +1,7 @@
 var ParserUtil = require('../src/parser-util');
 var CollectionUtil = require('../src/collection-util');
 
-var RuleValidator = function () {
+function RuleValidator() {
 
     const RULE_REGEX = /^\w+\((\w+)(,\w+)*\):-(\w+\((\w+)(,\w+)*\))(,\w+\((\w+)(,\w+)*\))*\.$/;
     var parserUtil = new ParserUtil();
