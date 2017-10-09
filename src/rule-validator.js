@@ -12,6 +12,17 @@ var RuleValidator = function () {
         return RULE_REGEX.test(parserUtil.removeWhitespace(ruleString));
     }
 
+    /**
+     * Returns true if the parameters declared in the rule name are the same as
+     * the parameters in its facts, or false otherwise.
+     * @param rule
+     * @returns {boolean}
+     */
+    this.ruleHasValidParams = function (rule) {
+        // TODO
+        return true;
+    }
+
 }
 
 module.exports = RuleValidator;
